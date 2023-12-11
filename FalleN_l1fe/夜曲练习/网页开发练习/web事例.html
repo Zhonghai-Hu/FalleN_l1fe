@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!--这是注释-->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>第一个网页</title>
+    <!--style里面的是内部样式的css-->
+    <!--style必须放在head里-->
+    <style>
+        /*这是css的备注方法*/
+        /*
+            <div>一个块级元素，它可以对网页中的元素进行布局
+            border-style: solid; (dashed,double)
+            border: 4px solid blue 可以缩写
+            当 border-radius 设置了四个属性值时，表示从左上开始按顺时针
+            border-radius 左上 右上 右下 左下
+            padding: 元素 设置内边距
+            有一个值时格式 padding: 上下左右
+            有两个值时格式 padding: 上下 左右
+            有三个值时格式 padding: 上 左右 下
+            有四个值时格式 padding: 上 右 下 左
+            margin:元素 设置外边距
+            格式和padding一样
+            box-sizing 的属性值为，width、height属性的值仅决定盒子中内容区的大小
+            box-sizing 的属性值为border-box时，width、height属性同时控制边框、内边距、内容区的长度
+            使用margin属性为class='box'的盒子设置外边距 有多个值时 格式和padding一样
+            overflow属性，用于设置如何处理溢出盒子外的内容 属性值visible，表示可见的，是默认情况
+            设置overflow的属性值为hidden，会将溢出的内容隐藏
+            设置overflow的属性值为scroll，会添加滚动条
+            设置overflow属性值为auto，让浏览器自行处理是否添加滚动条
+            top、bottom、left和right四个属性的组合，来设置元素相对于默认位置的偏移量
+            position属性，用于指定一个元素在网页中的定位方式 
+            position: relative 表示相对定位
+            position: absolute 表示绝对定位
+            position: fixed 表示固定定位
+            position: sticky 表示粘性定位
+            div {
+                position: relative;
+                top: 60px;
+                left: 50px;
+            }
+            z-index属性的值为整数，根据大小决定元素堆叠的顺序，值大的会堆放在值小的上面
+        */
+        div {
+            color: black;
+            border-width: 4px;
+            border-style: solid;
+            border-color: blue;
+            width: 30%;
+            text-align: center;
+            border-radius: 9999px;
+            padding: 5px;
+            box-sizing: border-box;
+            margin: 10px auto 10px;
+        }
+
+        /*<span>标签中的内容会被标记，当它结合CSS设置样式时，其中的内容才会有视觉上的变化*/
+        p span {
+            color: #fff;
+            background-color: aqua;
+        }
+        /*下面是给h1一级标题设置颜色和大小*/
+        h1 {
+            color: red;
+        }
+        /*
+        设置颜色的方法有三种,分别是颜色名称 RGB 16进制码
+        属性float，用于控制元素的浮动
+        */
+        h2 {
+            color: rgb(236, 37, 236);
+            float: right;
+        }
+        /*分组选择器里的声明可以给分组选择器所选择的不同元素同时设置样式。*/
+        h3,.a {
+            color: #e62c89;
+        }
+        /*background-color 设置背景颜色*/
+        /*
+        font-family 设置文字类型 (字体名称)
+        font-family 后面的字体是备选 字体间以逗号隔开 如果浏览器不支持第一种字体 它将依次尝试下一种
+        font-weight 设置文字粗细 (xxx无px)
+        font-style 设置文字风格 (斜体 粗体等)
+        font-size 设置文字大小 (xxxpx)
+        */
+        .a {
+            font-family: "Times New Roman" , serif;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 20px;
+            background-color: rgb(255,176,51);
+        }
+        /*
+        font属性可以设置多个属性 有严格的先后顺序
+        字体大小和字体类型是必须设置的
+        */
+        p {
+            color: rgb(235, 87, 166);
+            font: 25px serif;
+        }
+        /*
+        text-align 设置水平对齐 (left center right)
+        text-decoration 文本修饰 (underline underline line-through)
+        text-indent 文本缩进 (xxpx)
+        line-height 行高 (xxpx) 如果只有数字就是表示字体大小的倍数
+        */
+        #这是id {
+            color: rgb(146, 11, 38);
+            text-align: right;
+            text-indent: 32px;
+            text-decoration: underline;
+            line-height: 32px;
+        }
+
+        a {
+            color: rgb(46, 25, 236);
+            font-family: "Times New Roman" , serif;
+            text-decoration: none;
+            line-height: 32px;
+        }
+        /*设置list-style-type属性的值，指定序号类型*/
+        /*
+        list-style-type:
+        decimal 数字 
+        upper-alpha 大写字母 
+        lower-alpha 小写字母 
+        upper-roman 大写罗马数字 
+        lower-roman 小写罗马数字
+        disc 默认
+        circle 空心圆
+        square 实心方形
+        none 无符号
+        */
+        ol {
+            list-style-type: decimal;
+        }
+
+        ul {
+            list-style-type: upper-alpha;
+        }
+        /*使用border-style属性，设置元素的四个边框的样式，即上、下、左、右边框的样式*/
+        /*使用 border-collapse 属性，spacing属性设置单元格间的间距，(collapse)属性可以把表格中的边框合并为单一边框*/
+        table, td, th {
+            border-style: solid;
+            border-collapse: separate;
+            border-width: 1px;
+        }
+        th {
+            border-color: #e62c89;
+            background-color: antiquewhite;
+        }
+        /*
+        伪类名称以单英文冒号:作为前缀，紧跟在选择器后面，不能有空格
+        :link伪类，可以设置「未访问状态」的样式
+        :visited伪类，可以设置「已访问状态」的样式
+        :hover伪类，可以设置「鼠标悬停状态」的样式
+        :active伪类，可以设置「点击时状态」的样式
+        :focus伪类，可以在元素获得焦点时，向元素添加特殊的样式
+
+        :first-child伪类，用于匹配第一个子元素
+        :last-child伪类，用于匹配最后一个子元素
+        :nth-child(n)伪类，就十分灵活了，它可以用于匹配第n个子元素
+
+        伪元素名称以双英文冒号::作为前缀，紧跟在选择器后面，不能有空格
+        ::before伪元素，在元素之前插入信内容 content属性，用于定义要插入的内容 ::before伪元素中必须定义content属性才会生效
+        ::after伪元素，在元素之前插入信内容 content属性，用于定义要插入的内容 ::after伪元素中必须定义content属性才会生效
+        */
+        .密码:hover {
+            color: red;
+        }
+    </style>
+    <!--link是引用外部样式的css-->
+    <!--link也必须放在head里-->
+    <link rel="stylesheet" href="这里面是外部编辑好的css文件链接">
+</head>
+
+<body>
+
+    <html lang="en" id="top">hello World</html>
+    <hr>
+    <!--hr是一个阻隔线-->
+    <h1>h1代表1级大标题</h1>
+    <h2>h2代表2级标题</h2>
+    <!--这是在HTML元素标签的style属性中直接定义CSS样式。-->
+    <h3 style="color: blue;">h3代表3级标题</h3>
+    <p>p代表这是一段网页的段落</p>
+    <p>br是强制换行属性<br>这是二段网页的段落</p>
+    <p class="a">class 属性用来对相同的元素进行分类</p>
+    <p class="a">这是类别a</p>
+    <p class="b">这是类别b</p>
+    <p id="这是id">id属性为某个元素分配一个<span>唯一</span>的标识符</p>
+    <p><b>b是加粗</b></p>
+    <p><i>i是斜体</b></p>
+    <p><s>s是删除线</s></p>
+    <p><u>u是下划线</u></p>
+    <p>p一个元素一行</p>
+    <b>b可以</b>
+    <b>多个元素一行</b>
+    <img src="C:\Users\FalleN_l1fe\Searches\Pictures\猫娘.jpg" alt="这是图片信息,如果图片加载不出来会显示这段话"width="188.25px" height="108px"><br>
+    <!--img是图片-->
+    <a href="C:\Users\FalleN_l1fe\Searches\Pictures\猫娘.jpg" target="_self">a是超链接</a><br>
+    <a href="C:\Users\FalleN_l1fe\Searches\Pictures\猫娘.jpg" target="_blank">blank.浏览器会在新的页面中打开文档;self.浏览器会在当前页面打开文档</a><br>
+    <a href="#top">回到头部</a>
+    <div>
+        <h4>这是div div需要放在body里</h3>
+    </div>
+    <p id="My game">我的游戏</p>
+    <!--ul是unordered list的缩写，表示无序列表-->
+    <!--li是list item的缩写，表示列表项，即列表里的条目-->
+    <!--列表项里除了文本，还可以包含超链接、图片等，甚至还可以是另外一个列表-->
+    <ul>
+        <li>csgo</li>
+        <li>apex</li>
+        <li>minecraft</li>
+        <li>L4D2</li>
+        <li>rainbow six</li>
+    </ul>
+    <p id="difficult">游戏难度排名</p>
+    <!--ol是ordered list的缩写，表示有序列表-->
+    <ol>
+        <li>csgo</li>
+        <li>apex</li>
+        <li>rainbow six</li>
+        <li>L4D2</li>
+        <li>minecraft</li>
+    </ol>
+    <!--
+        dl是definition list的缩写, 表示定义列表
+        dt是definition term的缩写, 表示术语. 也就是我们说的标题
+        dd是definition description的缩写,表示一个术语(标题)的描述
+    -->
+    <dl>
+        <dt>定义列表</dt>
+        <dd>none 1</dd>
+        <dd>none 2</dd>
+    </dl>
+    <!--
+        <table>标签对用来创建一个表格元素
+        tr是table row的简称，表示表格的行
+        th是table head的简称，表示表格的表头单元格
+        td是table datacell的简称，表示存放表格数据的表格单元格
+    -->
+
+    <!--
+        rowspan属性可以跨行合并
+        colspan属性可以跨列合并
+    -->
+
+    <table class="b">
+        <tr>
+            <th class="b">表头</th>
+            <th class="b">none</th>
+            <th class="b">none</th>
+        </tr>
+        <tr>
+            <td rowspan="3">数据</td>
+            <td colspan="2">none</td>
+        </tr>
+        <tr>
+            <td>none</td>
+            <td>none</td>
+        </tr>
+        <tr>
+            <td>none</td>
+            <td>none</td>
+        </tr>
+    </table>
+    <!--
+        form里是一个表单(输入框)
+        type 属性用来设置 input 元素的类型(text passward number submit) **submit就是按钮
+        name 属性为输入框设置一个名称(为输入框设置name属性的一个常见作用是实现内容补全)
+        placeholder是预留信息
+        action 属性用来设置提交表单后执行的动作 action里填写服务器地址
+        value 属性设定按钮上显示的文字
+        required 属性可以强制用户必须为某个输入框填写内容
+        <input>标签负责创建单选按钮控件
+        也可以在<input>元素前后直接写入单选按钮的文本描述
+        type属性设置为checkbox，表示复选框
+        name 一样 表示他们是一个组
+        通用属性value，用于设置控件的值
+        <select>标签对用来创建一个下拉菜单元素
+        下拉菜单里的每个选项都由<select>中的一个 <option> 元素定义
+        &nbsp;是空格转义字符，共6个字符 nbsp是Non-Breaking Space的缩写
+    -->
+    <form action="javascript:alert('成功啦！')">
+        <input type="text" name="input" placeholder="这里可以输入任何东西" required>
+        <input type="submit" value="点一下试试">
+        <input type="radio" name="type" id="测试">
+        <label for="测试">测试</label>
+        <input type="radio" name="type" id="表单">
+        <label for="表单">表单</label>
+        <br>
+        <input type="checkbox" name="type">
+        <input type="checkbox" name="type">
+        <label for="type">游戏</label>
+        <select name="game" id="type">
+            <option>csgo</option>
+            <option>apex</option>
+            <option>minecraft</option>
+        </select>
+        <tr>
+            <td class="密码">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</td>
+            <td><input type="password" placeholder="请输入9~16位密码"></td>
+        </tr>
+    </form>
+</body>
+
+</html>
