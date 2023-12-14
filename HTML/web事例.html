@@ -51,7 +51,7 @@
             border-width: 4px;
             border-style: solid;
             border-color: blue;
-            width: 30%;
+            width: 40%;
             text-align: center;
             border-radius: 9999px;
             padding: 5px;
@@ -218,6 +218,73 @@
         .密码:hover {
             color: red;
         }
+        /*
+        display属性，用于指定元素的盒子类型
+        属性值flex，表示生成一个弹性容器，简称容器
+        flex-direction属性，用于指定容器中项目的排列方向
+        当flex-direction的属性值为column-reverse时，项目会从下到上排列
+        当flex-direction的属性值为column时，项目会从上到下排列
+        当flex-direction的属性值为row时，项目会从左到右排列
+        当flex-direction的属性值为row-reverse时，项目会从右到左排列
+        flex-wrap属性，用于设置弹性盒子的项目超出父容器时是否需要换行
+        nowrap，表示项目不会换行，是默认情况
+        wrap，表示项目会在需要时换行
+        wrap-reverse，表示项目会在需要时以相反的顺序换行
+        justify-content属性，用于设置盒子的项目在水平方向的对齐方式
+        center表示居中对齐 flex-start表示水平左对齐 flex-end表示水平右对齐
+        space-around表示项目之间的间隔相等 space-between表示项目会两端对齐
+
+        align-items属性，用于设置单行项目的垂直对齐方式
+        stretch是项目垂直对齐的默认情况 项目未设置高度时 拉伸以适合容器 其他元素与justify相同
+
+        align-content属性，用于设置多行项目的垂直对齐方式
+        属性与justify相同
+        */
+        .container {
+            display: flex;
+            background-color: #5E80F4;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        /*
+        flex-grow属性，用于定义容器中项目的相对放大比例
+        flex-shrink属性，用于定义容器中项目的相对缩小比例
+        flex-basis属性，用于定义容器中项目的初始长度
+        align-self属性，用于为某个项目设置不同于其它项目的垂直对齐方式
+        */
+        .container div:nth-child(1) {
+            flex-grow: 1;
+        }
+        .container div:nth-child(2) {
+            flex-shrink: 2;
+        }
+        .container div:nth-child(3) {
+            flex-basis: 15px;
+        }
+        .container div:last-child {
+            align-self: flex-start;
+        }
+        /*
+        order属性，用于定义容器中项目的出现顺序
+
+        */
+        .item1 {
+            order: 4;
+        }
+
+        .item2 {
+            order: 3;
+        }
+
+        .item3 {
+            order: 2;
+        }
+
+        .item4 {
+            order: 1;
+        }
     </style>
     <!--link是引用外部样式的css-->
     <!--link也必须放在head里-->
@@ -353,6 +420,13 @@
             <td><input type="password" placeholder="请输入9~16位密码"></td>
         </tr>
     </form>
+
+    <div class="container">
+        <div class="item1">1</div>
+        <div class="item2">2</div>
+        <div class="item3">3</div>
+        <div class="item4">4</div> 
+
 </body>
 
 </html>
