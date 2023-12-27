@@ -16,15 +16,18 @@ if statusCode == 200:
     print(html)
     # BeautifulSoup() 函数可以把不标准的 HTML 代码重新进行了自动更正
     soup = BeautifulSoup(html, "lxml")
-    print(soup)
+    """print(soup)"""
     # find_all() 函数可以查询 soup 中所有符合条件的元素，组成一个列表
     # find_all(name="标签") 根据标签名查询节点
-    ps = soup.find_all(name = "h1")
+    ps = soup.find_all(name = "p")
     print("---------------------------------------------------------------")
     print("---------------------------------------------------------------")
     print("---------------------------------------------------------------")
     for content in ps:
         contentString = content.string
+        contenttext = content.text
         print(contentString)
+        print("-------------------------------------------------------------")
+        print(contentText)
 else:
     print("请求数据失败")
