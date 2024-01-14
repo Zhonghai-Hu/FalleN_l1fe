@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from pyecharts.charts import Line
+from pyecharts.charts import Bar
 import time
 
 headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36"}
@@ -14,14 +14,10 @@ def getPositionInfo(detail_url):
     companyName = com_content.find('a',class_="logo").find_next('a').text.strip()
     position = soup.find(class_="job_position").string.strip()
 
-    salary = soup.find(class_="job_money cutom_font").string
-    salary = salary.encode()
-    salary = salary.replace(b"\xee\x8b\xbf", b"0")
-    salary = salary.replace(b"\xee\xa2\x9c", b"1")
-    salary = salary.replace(b"\xee\x90\xb7", b"2")
-    salary = salary.decode()
+    salary_element = soup.find(class_="job_money cutom_font")
+    salary = salary_element.get_text(strip=True)
 
-    # print(f"{job},{companyName},{position},{salary}")
+    print(f"{job},{companyName},{position},{salary}")
     with open(r"C:\Users\FalleN_l1fe\Documents\GitHub\FalleN_l1fe\Python\夜曲\职业数据.txt", "a") as f:
         f.write(job+","+companyName+","+position+","+salary+"\n")
 
